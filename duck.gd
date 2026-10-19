@@ -24,5 +24,5 @@ func _process(delta: float) -> void:
 	#modulate += colour_velocity
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Player"):
-		queue_free()
+	if area.is_in_group("Player"): #If collided with the player:
+		queue_free() #Disappear
