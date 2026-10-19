@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bm2m4dtot603m"]
+
+[ext_resource type="Script" uid="uid://btcp7isa6tyuw" path="res://game.gd" id="1_klrkg"]
+[ext_resource type="Theme" uid="uid://p6ily2d3rb8i" path="res://default_theme.tres" id="1_yll68"]
+[ext_resource type="PackedScene" uid="uid://c2f2psj5p0141" path="res://player.tscn" id="3_ckwfe"]
+
+[node name="Task01" type="Node2D" unique_id=1195358892]
+script = ExtResource("1_klrkg")
+
+[node name="UI" type="Control" parent="." unique_id=1639802124]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 113.0
+theme = ExtResource("1_yll68")
+
+[node name="Label" type="Label" parent="UI" unique_id=627941150]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="BackGround" type="Sprite2D" parent="." unique_id=304853568]
+
+[node name="DuckSpawnTimer" type="Timer" parent="." unique_id=1866362146]
+autostart = true
+
+[node name="Player" parent="." unique_id=202988483 instance=ExtResource("3_ckwfe")]
+position = Vector2(576, 603)
+
+[connection signal="timeout" from="DuckSpawnTimer" to="." method="_on_duck_spawn_timer_timeout"]
+[connection signal="Score" from="Player" to="." method="_on_player_score"]
